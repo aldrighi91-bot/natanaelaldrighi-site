@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Natanael Aldrighi · Lançamentos de alto padrão em Florianópolis</title>
+<meta name="description" content="Natanael Aldrighi, corretor de imóveis especializado em lançamentos de alto padrão em Florianópolis. Curadoria, análise de investimento e atendimento para quem mora fora.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cal:#F6F6F2;        /* fundo */
+  --pedra:#E4E2DA;      /* superfícies secundárias */
+  --granito:#1C2321;    /* texto */
+  --nevoa:#5E6663;      /* texto secundário */
+  --restinga:#36584A;   /* acento verde mata atlântica */
+  --mar:#0E2B33;        /* seções escuras */
+  --linha:#CFCCC2;
+  --serif:"Bodoni Moda", "Didot", "Georgia", serif;
+  --sans:"Figtree", "Helvetica Neue", Arial, sans-serif;
+  --wrap:1240px;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*,*::before,*::after{box-sizing:inherit;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{background:var(--cal);color:var(--granito);font:400 17px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--restinga);outline-offset:3px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 clamp(20px,4vw,48px)}
+h1,h2,h3{font-family:var(--serif);font-weight:400;letter-spacing:-.01em;line-height:1.08}
+h2{font-size:clamp(34px,4.6vw,58px);max-width:16ch}
+p{max-width:62ch}
+.lead{font-size:clamp(18px,1.6vw,21px);color:var(--nevoa)}
+
+/* botões */
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 26px;border-radius:999px;font:500 15px/1 var(--sans);text-decoration:none;border:1px solid var(--granito);transition:background .2s,color .2s}
+.btn-solid{background:var(--granito);color:var(--cal)}
+.btn-solid:hover{background:var(--restinga);border-color:var(--restinga)}
+.btn-ghost:hover{background:var(--granito);color:var(--cal)}
+
+/* cabeçalho */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(246,246,242,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--linha)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:74px}
+.marca{font-family:var(--serif);font-size:22px;text-decoration:none}
+.marca small{display:block;font:500 11px/1.2 var(--sans);color:var(--nevoa);letter-spacing:.02em}
+.menu{display:flex;gap:30px;list-style:none}
+.menu a{text-decoration:none;font-size:15px;color:var(--nevoa)}
+.menu a:hover{color:var(--granito)}
+.nav .btn{padding:11px 20px}
+@media(max-width:860px){.menu{display:none}}
+
+/* hero */
+.hero{position:relative;overflow:hidden;padding:clamp(48px,7vw,96px) 0 0}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(32px,5vw,72px);align-items:end}
+.hero h1{font-size:clamp(42px,6vw,82px);max-width:13ch}
+.hero .lead{margin:28px 0 36px}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:14px}
+.retrato{aspect-ratio:4/5;border-radius:220px 220px 4px 4px;overflow:hidden;position:relative;background:linear-gradient(170deg,#9FB0A6 0%,#56705F 55%,#2B4237 100%)}
+.retrato span{position:absolute;inset:auto 0 28px;text-align:center;color:rgba(246,246,242,.85);font-size:13px}
+.retrato b{position:absolute;inset:0;display:grid;place-items:center;font:400 120px/1 var(--serif);color:rgba(246,246,242,.35)}
+.assinatura{font-family:var(--serif);font-size:clamp(90px,19vw,290px);line-height:.78;letter-spacing:-.04em;color:var(--granito);white-space:nowrap;margin-top:clamp(40px,6vw,80px);padding-bottom:.2em;transform:translateX(-.04em);user-select:none}
+.faixa{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;border-top:1px solid var(--linha);padding:18px 0;font-size:14px;color:var(--nevoa)}
+@media(max-width:860px){.hero-grid{grid-template-columns:1fr}.retrato{max-width:420px;border-radius:180px 180px 4px 4px}}
+
+/* seções */
+section{padding:clamp(80px,10vw,140px) 0}
+.cabeca{display:flex;justify-content:space-between;align-items:end;gap:32px;flex-wrap:wrap;margin-bottom:clamp(40px,5vw,64px)}
+.cabeca p{color:var(--nevoa)}
+
+/* método */
+.metodo{background:var(--pedra)}
+.passos{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--granito)}
+.passo{padding:32px 28px 8px 0}
+.passo + .passo{padding-left:28px;border-left:1px solid var(--linha)}
+.passo .n{font-family:var(--serif);font-size:44px;color:var(--restinga)}
+.passo h3{font-size:26px;margin:14px 0 12px}
+.passo p{color:var(--nevoa);font-size:16px}
+@media(max-width:860px){.passos{grid-template-columns:1fr}.passo + .passo{padding-left:0;border-left:0;border-top:1px solid var(--linha)}}
+
+/* lançamentos */
+.filtros{display:flex;flex-wrap:wrap;gap:8px}
+.filtros button{font:500 14px/1 var(--sans);padding:10px 16px;border-radius:999px;border:1px solid var(--linha);background:transparent;color:var(--nevoa);cursor:pointer}
+.filtros button[aria-pressed="true"]{background:var(--granito);border-color:var(--granito);color:var(--cal)}
+.grade{display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(28px,3vw,44px) clamp(20px,2.5vw,32px)}
+.imovel{grid-column:span 4;text-decoration:none}
+.imovel.destaque{grid-column:span 8}
+.imovel.destaque + .imovel{grid-column:span 4}
+.foto{aspect-ratio:4/3;border-radius:4px;overflow:hidden;position:relative}
+.imovel.destaque .foto{aspect-ratio:16/10}
+.foto svg{position:absolute;inset:0;width:100%;height:100%}
+.foto em{position:absolute;left:16px;bottom:14px;font:500 12px/1 var(--sans);font-style:normal;color:rgba(255,255,255,.8)}
+.status{position:absolute;top:14px;left:14px;background:var(--cal);color:var(--granito);font:500 13px/1 var(--sans);padding:8px 12px;border-radius:999px}
+.imovel h3{font-size:28px;margin:18px 0 6px}
+.meta{display:flex;flex-wrap:wrap;gap:4px 18px;color:var(--nevoa);font-size:15px}
+.preco{margin-top:10px;font-weight:600}
+.imovel:hover h3{color:var(--restinga)}
+@media(max-width:960px){.imovel,.imovel.destaque,.imovel.destaque + .imovel{grid-column:span 6}}
+@media(max-width:620px){.imovel,.imovel.destaque,.imovel.destaque + .imovel{grid-column:span 12}}
+.aviso{margin-top:40px;font-size:13px;color:var(--nevoa)}
+
+/* bairros */
+.bairros{background:var(--mar);color:var(--cal)}
+.bairros h2,.bairros .cabeca p{color:var(--cal)}
+.bairros .cabeca p{opacity:.7}
+.lista-bairros{list-style:none;border-top:1px solid rgba(246,246,242,.25)}
+.lista-bairros li{display:grid;grid-template-columns:34% 1fr 150px;gap:24px;align-items:baseline;padding:26px 0;border-bottom:1px solid rgba(246,246,242,.15)}
+.lista-bairros h3{font-size:clamp(28px,3vw,40px)}
+.lista-bairros p{opacity:.72;font-size:16px}
+.lista-bairros .m2{font-size:14px;opacity:.6;white-space:nowrap;text-align:right}
+@media(max-width:760px){.lista-bairros li{grid-template-columns:1fr;gap:8px}}
+
+/* simulador */
+.sim{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,90px);align-items:start}
+.campos{display:grid;gap:26px}
+.campo label{display:flex;justify-content:space-between;font-size:15px;margin-bottom:10px}
+.campo label output{font-weight:600}
+input[type=range]{width:100%;accent-color:var(--restinga)}
+.campo input[type=text]{width:100%;font:400 28px/1.2 var(--serif);border:0;border-bottom:1px solid var(--granito);background:transparent;padding:6px 0;color:var(--granito)}
+.resultado{background:var(--pedra);border-radius:4px;padding:clamp(28px,4vw,44px)}
+.resultado dl{display:grid;grid-template-columns:1fr auto;gap:16px 24px;margin-top:8px}
+.resultado dt{color:var(--nevoa)}
+.resultado dd{font-family:var(--serif);font-size:24px;text-align:right}
+.resultado .total{border-top:1px solid var(--granito);padding-top:16px}
+.resultado small{display:block;margin-top:24px;color:var(--nevoa);font-size:13px}
+@media(max-width:860px){.sim{grid-template-columns:1fr}}
+
+/* exterior */
+.exterior{background:var(--pedra)}
+.ext-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,90px);align-items:center}
+.ext-grid ul{list-style:none;display:grid;gap:18px}
+.ext-grid li{padding-left:28px;position:relative}
+.ext-grid li::before{content:"";position:absolute;left:0;top:.62em;width:14px;height:1px;background:var(--restinga)}
+@media(max-width:860px){.ext-grid{grid-template-columns:1fr}}
+
+/* contato */
+.contato-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,90px)}
+form{display:grid;gap:22px}
+.f label{display:block;font-size:14px;color:var(--nevoa);margin-bottom:6px}
+.f input,.f select,.f textarea{width:100%;font:400 17px/1.4 var(--sans);color:var(--granito);background:transparent;border:0;border-bottom:1px solid var(--linha);padding:10px 0;border-radius:0}
+.f textarea{min-height:90px;resize:vertical}
+.f input:focus,.f select:focus,.f textarea:focus{outline:none;border-bottom-color:var(--granito)}
+.lgpd{font-size:13px;color:var(--nevoa)}
+.erro{color:#9B2C2C;font-size:14px;min-height:1em}
+@media(max-width:860px){.contato-grid{grid-template-columns:1fr}}
+
+/* rodapé */
+footer{background:var(--granito);color:var(--cal);padding:64px 0 40px}
+.rod{display:flex;justify-content:space-between;flex-wrap:wrap;gap:32px}
+.rod .marca small{color:rgba(246,246,242,.6)}
+.rod p,.rod a{font-size:14px;opacity:.75}
+.legal{margin-top:48px;padding-top:24px;border-top:1px solid rgba(246,246,242,.15);font-size:12px;opacity:.55;max-width:none}
+
+/* whatsapp flutuante */
+.wa{position:fixed;right:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:30;width:58px;height:58px;border-radius:50%;background:var(--restinga);display:grid;place-items:center;box-shadow:0 8px 24px rgba(14,43,51,.25)}
+.wa svg{width:28px;height:28px;fill:#fff}
+
+/* entrada do hero: um único momento */
+@media(prefers-reduced-motion:no-preference){
+  .assinatura{animation:sobe 1.2s cubic-bezier(.2,.7,.2,1) both .15s}
+  @keyframes sobe{from{transform:translate(-.04em,40%);opacity:0}to{transform:translate(-.04em,0);opacity:1}}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#topo" class="marca">Natanael Aldrighi<small>Corretor de imóveis · CRECI-SC 00000-F</small></a>
+    <ul class="menu">
+      <li><a href="#lancamentos">Lançamentos</a></li>
+      <li><a href="#bairros">Bairros</a></li>
+      <li><a href="#simulador">Simulador</a></li>
+      <li><a href="#metodo">Como trabalho</a></li>
+    </ul>
+    <a class="btn btn-solid" href="#contato">Falar comigo</a>
+  </div>
+</header>
+
+<main id="topo">
+  <section class="hero" style="padding-bottom:0">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <h1>Lançamentos de alto padrão em Florianópolis, escolhidos antes de chegarem até você.</h1>
+          <p class="lead">Sou Natanael Aldrighi. Analiso cada empreendimento como investidor (incorporadora, localização, fluxo de pagamento e potencial de valorização) e só apresento o que eu mesmo compraria.</p>
+          <div class="hero-ctas">
+            <a class="btn btn-solid" href="#lancamentos">Ver lançamentos</a>
+            <a class="btn btn-ghost" data-wa href="#">Conversar no WhatsApp</a>
+          </div>
+        </div>
+        <div class="retrato" role="img" aria-label="Foto de Natanael Aldrighi">
+          <b>NA</b><span>Sua foto profissional aqui</span>
+        </div>
+      </div>
+      <div class="assinatura" aria-hidden="true">Aldrighi</div>
+      <div class="faixa">
+        <span>Florianópolis · Santa Catarina</span>
+        <span>Atendimento presencial e remoto</span>
+        <span>27°35′ S · 48°32′ O</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="metodo" id="metodo">
+    <div class="wrap">
+      <div class="cabeca">
+        <h2>Antes de indicar um imóvel, eu faço a lição de casa.</h2>
+        <p class="lead">Lançamento é compra de longo prazo. O que separa um bom negócio de uma dor de cabeça está nos detalhes que quase ninguém olha.</p>
+      </div>
+      <div class="passos">
+        <div class="passo">
+          <div class="n">1</div>
+          <h3>Análise</h3>
+          <p>Histórico de entregas da incorporadora, registro de incorporação, preço do m² frente ao bairro e ritmo de vendas do empreendimento.</p>
+        </div>
+        <div class="passo">
+          <div class="n">2</div>
+          <h3>Curadoria</h3>
+          <p>Uma seleção pequena, alinhada ao seu objetivo: morar, investir para revenda ou renda com aluguel por temporada.</p>
+        </div>
+        <div class="passo">
+          <div class="n">3</div>
+          <h3>Acompanhamento</h3>
+          <p>Da negociação da tabela à entrega das chaves: atualizações da obra, vistoria e, se você quiser, a estratégia de locação.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="lancamentos">
+    <div class="wrap">
+      <div class="cabeca">
+        <h2>Lançamentos selecionados</h2>
+        <div class="filtros" role="group" aria-label="Filtrar por bairro"></div>
+      </div>
+      <div class="grade" id="grade"></div>
+      <p class="aviso">Empreendimentos de exemplo para composição do layout. Imagens ilustrativas. Valores e condições sujeitos a alteração sem aviso prévio.</p>
+    </div>
+  </section>
+
+  <section class="bairros" id="bairros">
+    <div class="wrap">
+      <div class="cabeca">
+        <h2>Onde o alto padrão acontece na ilha</h2>
+        <p>Cada região tem um perfil de comprador e de valorização. Conheça antes de escolher.</p>
+      </div>
+      <ul class="lista-bairros">
+        <li><h3>Jurerê Internacional</h3><p>Bairro planejado no norte da ilha, com beach clubs, segurança e casas de frente para o mar. O endereço mais disputado de Florianópolis.</p><span class="m2">Morar · Temporada</span></li>
+        <li><h3>Cacupé e Santo Antônio de Lisboa</h3><p>Pôr do sol sobre a baía, ruas tranquilas e um ritmo mais reservado. Projetos boutique com poucas unidades.</p><span class="m2">Morar</span></li>
+        <li><h3>Beira-Mar Norte</h3><p>Vida urbana com vista para a baía, perto de tudo. Liquidez alta e procura constante por executivos e famílias.</p><span class="m2">Morar · Revenda</span></li>
+        <li><h3>Campeche</h3><p>A região que mais cresce no sul da ilha. Praia extensa, perfil jovem e forte demanda para aluguel por temporada.</p><span class="m2">Investir · Temporada</span></li>
+        <li><h3>Lagoa da Conceição</h3><p>O coração boêmio e natural da ilha. Oferta limitada de terrenos, o que sustenta a valorização.</p><span class="m2">Temporada · Revenda</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="simulador">
+    <div class="wrap sim">
+      <div>
+        <h2>Simule o fluxo de pagamento de um lançamento</h2>
+        <p class="lead" style="margin:24px 0 40px">Na planta, o pagamento é dividido entre entrada, parcelas mensais durante a obra e o saldo nas chaves. Ajuste e veja quanto sai do seu bolso por mês.</p>
+        <div class="campos">
+          <div class="campo">
+            <label for="valor">Valor do imóvel (R$)</label>
+            <input type="text" id="valor" inputmode="numeric" value="2.500.000">
+          </div>
+          <div class="campo">
+            <label for="entrada">Entrada <output id="o-entrada"></output></label>
+            <input type="range" id="entrada" min="5" max="40" step="1" value="20">
+          </div>
+          <div class="campo">
+            <label for="obra">Pago durante a obra <output id="o-obra"></output></label>
+            <input type="range" id="obra" min="0" max="60" step="1" value="30">
+          </div>
+          <div class="campo">
+            <label for="meses">Prazo da obra <output id="o-meses"></output></label>
+            <input type="range" id="meses" min="12" max="60" step="1" value="36">
+          </div>
+        </div>
+      </div>
+      <div class="resultado" aria-live="polite">
+        <dl>
+          <dt>Entrada</dt><dd id="r-entrada"></dd>
+          <dt>Parcela mensal na obra</dt><dd id="r-mensal"></dd>
+          <dt>Saldo nas chaves</dt><dd id="r-chaves"></dd>
+          <dt class="total">Total do imóvel</dt><dd class="total" id="r-total"></dd>
+        </dl>
+        <small>Simulação sem correção pelo INCC, que reajusta as parcelas durante a obra. O saldo nas chaves pode ser quitado à vista ou financiado. Cada incorporadora tem sua própria tabela.</small>
+        <a class="btn btn-solid" data-wa data-msg="Olá Natanael, fiz uma simulação no seu site e gostaria de conversar." href="#" style="margin-top:28px">Receber tabelas reais</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="exterior">
+    <div class="wrap ext-grid">
+      <div>
+        <h2>Mora fora do Brasil ou de Santa Catarina?</h2>
+        <p class="lead" style="margin-top:24px">Morei e empreendi na Europa. Sei o que é comprar à distância e precisar de alguém de confiança do outro lado.</p>
+      </div>
+      <ul>
+        <li>Apresentação dos empreendimentos por videochamada, com visita ao decorado ao vivo.</li>
+        <li>Contrato e documentação com assinatura digital, sem precisar viajar.</li>
+        <li>Relatórios de andamento da obra com fotos e vídeos.</li>
+        <li>Indicação de parceiros para financiamento, câmbio e gestão de aluguel por temporada.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="contato">
+    <div class="wrap contato-grid">
+      <div>
+        <h2>Vamos encontrar o seu próximo imóvel.</h2>
+        <p class="lead" style="margin-top:24px">Conte o que você procura. Respondo pessoalmente, normalmente no mesmo dia.</p>
+      </div>
+      <form id="form" novalidate>
+        <div class="f"><label for="nome">Nome</label><input id="nome" autocomplete="name" required></div>
+        <div class="f"><label for="tel">WhatsApp</label><input id="tel" type="tel" autocomplete="tel" required></div>
+        <div class="f"><label for="objetivo">Objetivo</label>
+          <select id="objetivo">
+            <option>Morar</option><option>Investir para revenda</option><option>Renda com aluguel por temporada</option><option>Ainda estou avaliando</option>
+          </select></div>
+        <div class="f"><label for="faixa">Faixa de investimento</label>
+          <select id="faixa">
+            <option>Até R$ 1,5 milhão</option><option>R$ 1,5 a 3 milhões</option><option>R$ 3 a 6 milhões</option><option>Acima de R$ 6 milhões</option>
+          </select></div>
+        <div class="f"><label for="msg">Mensagem (opcional)</label><textarea id="msg"></textarea></div>
+        <p class="erro" id="erro" role="alert"></p>
+        <p class="lgpd">Ao enviar, você concorda em ser contatado sobre imóveis. Seus dados não são compartilhados com terceiros, conforme a LGPD.</p>
+        <button class="btn btn-solid" type="submit" style="justify-self:start;cursor:pointer">Enviar pelo WhatsApp</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="rod">
+      <a href="#topo" class="marca" style="color:var(--cal)">Natanael Aldrighi<small>Lançamentos de alto padrão em Florianópolis</small></a>
+      <div>
+        <p>CRECI-SC 00000-F</p>
+        <p><a href="mailto:contato@natanaelaldrighi.com">contato@natanaelaldrighi.com</a></p>
+        <p><a href="https://instagram.com/" rel="noopener">Instagram</a></p>
+      </div>
+    </div>
+    <p class="legal">As informações dos empreendimentos são fornecidas pelas incorporadoras e podem mudar sem aviso prévio. Imagens meramente ilustrativas. Comercialização de unidades condicionada ao registro do memorial de incorporação, nos termos da Lei 4.591/64.</p>
+  </div>
+</footer>
+
+<a class="wa" data-wa href="#" aria-label="Conversar no WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s1 2.5 1.1 2.7c.1.2 1.9 2.9 4.6 4 1.7.7 2.4.8 3.2.6.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2l-.4-.2z"/></svg>
+</a>
+
+<script>
+/* ===== CONFIGURAÇÃO: edite aqui ===== */
+const WHATSAPP = "5548999999999"; // seu número com DDI + DDD, só dígitos
+
+/* Lançamentos: adicione ou remova itens. "cor" define o tom da imagem ilustrativa até você ter as fotos reais.
+   Para usar uma foto real, preencha "foto" com o caminho (ex: "img/residencial-x.jpg"). */
+const IMOVEIS = [
+  {nome:"Residencial Exemplo Mar", bairro:"Jurerê Internacional", status:"Pré-lançamento", tipologia:"3 e 4 suítes", area:"180 a 260 m²", entrega:"Dez 2029", preco:"R$ 4,8 milhões", cor:["#7E9C9F","#21434B"], foto:""},
+  {nome:"Exemplo Baía", bairro:"Cacupé", status:"Lançamento", tipologia:"4 suítes", area:"310 m²", entrega:"Jun 2029", preco:"R$ 6,2 milhões", cor:["#A6A08C","#4E4A3A"], foto:""},
+  {nome:"Exemplo Norte", bairro:"Beira-Mar Norte", status:"Em obras", tipologia:"3 suítes", area:"145 m²", entrega:"Mar 2028", preco:"R$ 3,1 milhões", cor:["#8E9AA6","#2E3843"], foto:""},
+  {nome:"Exemplo Campeche", bairro:"Campeche", status:"Lançamento", tipologia:"Studios a 2 suítes", area:"38 a 92 m²", entrega:"Set 2028", preco:"R$ 890 mil", cor:["#B7AE96","#5B6B5A"], foto:""},
+  {nome:"Exemplo Lagoa", bairro:"Lagoa da Conceição", status:"Pré-lançamento", tipologia:"2 e 3 suítes", area:"95 a 140 m²", entrega:"Abr 2029", preco:"R$ 1,9 milhão", cor:["#93A893","#2F4A3C"], foto:""},
+];
+/* ==================================== */
+
+const waLink = msg => `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`;
+document.querySelectorAll("[data-wa]").forEach(a=>{
+  a.href = waLink(a.dataset.msg || "Olá Natanael, vim pelo seu site e gostaria de conhecer os lançamentos.");
+  a.target="_blank"; a.rel="noopener";
+});
+
+/* imagem ilustrativa: fachada abstrata com brises */
+function fachada(c1,c2,id){
+  let linhas="";
+  for(let y=70;y<300;y+=18) linhas+=`<line x1="150" x2="330" y1="${y}" y2="${y}" stroke="rgba(255,255,255,.28)" stroke-width="1"/>`;
+  return `<svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <defs><linearGradient id="g${id}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${c1}"/><stop offset="1" stop-color="${c2}"/></linearGradient></defs>
+    <rect width="400" height="300" fill="url(#g${id})"/>
+    <rect x="140" y="56" width="200" height="260" fill="rgba(255,255,255,.08)"/>
+    ${linhas}
+    <rect x="60" y="150" width="70" height="170" fill="rgba(0,0,0,.12)"/>
+  </svg>`;
+}
+
+const grade=document.getElementById("grade");
+function render(filtro){
+  const lista = IMOVEIS.filter(i=>!filtro||i.bairro===filtro);
+  grade.innerHTML = lista.map((i,k)=>`
+    <a class="imovel ${k===0&&!filtro?"destaque":""}" data-wa-item href="${waLink(`Olá Natanael, quero receber o material do ${i.nome} (${i.bairro}).`)}" target="_blank" rel="noopener">
+      <div class="foto">${i.foto?`<img src="${i.foto}" alt="${i.nome}" style="width:100%;height:100%;object-fit:cover">`:fachada(i.cor[0],i.cor[1],k)+`<em>Imagem ilustrativa</em>`}<span class="status">${i.status}</span></div>
+      <h3>${i.nome}</h3>
+      <div class="meta"><span>${i.bairro}</span><span>${i.tipologia}</span><span>${i.area}</span><span>Entrega ${i.entrega}</span></div>
+      <div class="preco">A partir de ${i.preco}</div>
+    </a>`).join("");
+}
+const filtros=document.querySelector(".filtros");
+["Todos",...new Set(IMOVEIS.map(i=>i.bairro))].forEach((b,k)=>{
+  const bt=document.createElement("button");
+  bt.type="button"; bt.textContent=b; bt.setAttribute("aria-pressed",k===0);
+  bt.onclick=()=>{filtros.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed","false"));bt.setAttribute("aria-pressed","true");render(k===0?null:b)};
+  filtros.appendChild(bt);
+});
+render(null);
+
+/* simulador */
+const brl=v=>v.toLocaleString("pt-BR",{style:"currency",currency:"BRL",maximumFractionDigits:0});
+const $=id=>document.getElementById(id);
+function simular(){
+  const valor=Number($("valor").value.replace(/\D/g,""))||0;
+  let e=+$("entrada").value, o=+$("obra").value, m=+$("meses").value;
+  if(e+o>95){o=95-e;$("obra").value=o}
+  $("o-entrada").textContent=e+"%"; $("o-obra").textContent=o+"%"; $("o-meses").textContent=m+" meses";
+  $("r-entrada").textContent=brl(valor*e/100);
+  $("r-mensal").textContent=brl(valor*o/100/m);
+  $("r-chaves").textContent=brl(valor*(100-e-o)/100);
+  $("r-total").textContent=brl(valor);
+}
+$("valor").addEventListener("input",ev=>{const d=ev.target.value.replace(/\D/g,"");ev.target.value=d?Number(d).toLocaleString("pt-BR"):"";simular()});
+["entrada","obra","meses"].forEach(id=>$(id).addEventListener("input",simular));
+simular();
+
+/* formulário -> WhatsApp */
+$("form").addEventListener("submit",ev=>{
+  ev.preventDefault();
+  const nome=$("nome").value.trim(), tel=$("tel").value.trim();
+  if(!nome||!tel){$("erro").textContent="Preencha nome e WhatsApp para eu conseguir te responder.";return}
+  $("erro").textContent="";
+  const texto=`Olá Natanael! Sou ${nome} (${tel}).\nObjetivo: ${$("objetivo").value}\nFaixa: ${$("faixa").value}\n${$("msg").value}`;
+  window.open(waLink(texto),"_blank","noopener");
+});
+</script>
+</body>
+</html>
