@@ -59,12 +59,12 @@ header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rg
 .hero h1{font-size:clamp(42px,6vw,82px);max-width:13ch}
 .hero .lead{margin:28px 0 36px}
 .hero-ctas{display:flex;flex-wrap:wrap;gap:14px}
-.retrato{aspect-ratio:4/5;border-radius:220px 220px 4px 4px;overflow:hidden;position:relative;background:linear-gradient(170deg,#9FB0A6 0%,#56705F 55%,#2B4237 100%)}
-.retrato span{position:absolute;inset:auto 0 28px;text-align:center;color:rgba(246,246,242,.85);font-size:13px}
-.retrato b{position:absolute;inset:0;display:grid;place-items:center;font:400 120px/1 var(--serif);color:rgba(246,246,242,.35)}
+.retrato{aspect-ratio:4/5;position:relative;margin:0}
+.retrato::before{content:"";position:absolute;inset:18% 0 0 0;border-radius:220px 220px 4px 4px;background:linear-gradient(170deg,#9FB0A6 0%,#56705F 55%,#2B4237 100%)}
+.retrato img{position:absolute;bottom:0;left:50%;transform:translateX(-50%);height:108%;width:auto;max-width:none;filter:drop-shadow(0 18px 30px rgba(14,43,51,.25))}
 .assinatura{font-family:var(--serif);font-size:clamp(90px,19vw,290px);line-height:.78;letter-spacing:-.04em;color:var(--granito);white-space:nowrap;margin-top:clamp(40px,6vw,80px);padding-bottom:.2em;transform:translateX(-.04em);user-select:none}
 .faixa{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;border-top:1px solid var(--linha);padding:18px 0;font-size:14px;color:var(--nevoa)}
-@media(max-width:860px){.hero-grid{grid-template-columns:1fr}.retrato{max-width:420px;border-radius:180px 180px 4px 4px}}
+@media(max-width:860px){.hero-grid{grid-template-columns:1fr}.retrato{max-width:420px;width:100%;justify-self:center;margin-top:32px}.retrato::before{border-radius:180px 180px 4px 4px}}
 
 /* seções */
 section{padding:clamp(80px,10vw,140px) 0}
@@ -192,9 +192,9 @@ footer{background:var(--granito);color:var(--cal);padding:64px 0 40px}
             <a class="btn btn-ghost" data-wa href="#">Conversar no WhatsApp</a>
           </div>
         </div>
-        <div class="retrato" role="img" aria-label="Foto de Natanael Aldrighi">
-          <b>NA</b><span>Sua foto profissional aqui</span>
-        </div>
+        <figure class="retrato">
+          <img src="natanael.webp" alt="Natanael Aldrighi, corretor de imóveis em Florianópolis" width="1000" height="1506" fetchpriority="high">
+        </figure>
       </div>
       <div class="assinatura" aria-hidden="true">Aldrighi</div>
       <div class="faixa">
